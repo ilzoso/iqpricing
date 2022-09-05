@@ -1,0 +1,204 @@
+html {
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-family: 'Roboto Slab';
+    _background-color: #eee;
+}
+
+textarea {
+    vertical-align: middle;
+    font-size: 0.7em;
+    height: 30px;
+}
+
+    textarea:hover {
+    }
+
+.ff-note {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+    .ff-note:hover {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+
+    .var {
+        text-align: right;
+    }
+
+div.iqwrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 800px;
+    padding: 20px 10px;
+    box-shadow: 0px 0px 10px 5px #eee;
+    border-radius: 4px;
+    _background-color: #fff;
+}
+
+div.iqtablewrapper {
+    _padding: 20px 10px;
+    _margin: 20px 10px;
+}
+
+table.iqtable {
+    position: relative;
+    border: 1px solid #ccc;
+    _box-shadow: 15px 5px 5px #eee;
+    border-radius: 4px;
+    width: 100%;
+    _padding: 20px 10px;
+    _margin: 20px 10px;
+}
+
+    table.iqtable thead {
+        padding: 20px;
+        margin: 10px;
+        border-left: 5px solid #ccc;
+        border-right: 5px solid #ccc;
+        background: #ccc;
+    }
+
+        table.iqtable thead tr th {
+            position: sticky;
+            top: -20px;
+            _background: #ccc;
+            color: rgba(30, 75, 115, 1);
+            padding-left: 10px;
+            padding-right: 10px;
+            border-left: 1px solid #fff !important;
+            _background: linear-gradient(to bottom, #ddd, #bbb 100%);
+            background-color: rgba(200,200,200, 0.85);
+        }
+
+    table.iqtable tbody {
+        border-bottom: 1px solid #ccc;
+        background: #fff;
+        border-left: 5px solid #ccc;
+        border-right: 5px solid #ccc;
+        color: #333;
+    }
+
+        table.iqtable tbody:hover {
+            _box-shadow: 5px 1px 11px #ccc;
+            box-shadow: 0px 0px 15px 5px #eee;
+            border-left: 5px solid #000;
+            border-right: 5px solid #000;
+            _transition: box-shadow linear 0.2s;
+            transition: background-color linear 0.1s;
+            _background-color: #eee !important;
+            _background: linear-gradient(to bottom rgba(30, 75, 115, 1), rgba(255, 255, 255, 0)) !important;
+            _background: linear-gradient(to bottom, #eee, #ddd 50%, #eee);
+            _background: linear-gradient(to bottom, #eee, #ddd 100%);
+            background-color: #eee;
+            color: #000;
+        }
+
+        table.iqtable tbody:nth-child(odd) {
+            _border-left: 5px solid #ff6a00;
+            _background-color: #eee;
+        }
+
+        table.iqtable tbody:nth-child(even) {
+            _border-left: 5px solid #ff6a00;
+            _background-color: #ddd;
+        }
+
+        table.iqtable tbody tr {
+        }
+
+            table.iqtable tbody tr:hover {
+                _background: #e2e2e2;
+                _transition: background-color ease-in-out 1s;
+                _color: #000;
+            }
+
+        table.iqtable tbody tr:last-child {
+            _border-bottom: 1px solid #ccc;
+        }
+
+        table.iqtable tbody th {
+            _padding-top: 10px;
+            _background: #aaa;
+            _border-top: 5px solid #888;
+            _border-radius: 10px;
+            _margin-bottom: 100px;
+        }
+
+        table.iqtable tbody:nth-child(odd) th {
+        }
+
+        table.iqtable thead th:first-child {
+            padding-left: 10px;
+        }
+
+    table.iqtable tbody td:first-child {
+        padding-left: 10px;
+    }
+
+    table.iqtable tbody td:nth-child(3) {
+        position: sticky;
+        left: -10px;
+        font-weight: bold;
+        background-color: rgba(200,200,200, 0.4);
+        color: rgba(30, 75, 115, 1);
+    }
+
+        table.iqtable tbody:nth-child(even) {
+            _border-left: 5px solid #b6ff00;
+            _background: #eee;
+        }
+
+        table.iqtable tbody tr.excluded {
+            text-decoration: line-through;
+            opacity: 0.4;
+            _color: #f77;
+        }
+
+    table.iqtable tbody tr td {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+        table.iqtable tbody tr td a {
+            padding-left: 5px;
+            padding-right: 5px;
+            text-decoration: none;
+        }
+
+        table.iqtable tbody tr td button.notes {
+            background-color: #eeda6c;
+            _background: linear-gradient(to bottom #ffd800, #ffe800 100%);
+            border: 1px solid #fff;
+            _border-right: solid 10px transparent;
+            _border-bottom: solid 10px transparent;
+            text-overflow: ellipsis;
+            max-width: 80px;
+            overflow-x: hidden;
+            white-space: nowrap;
+            font-size: 0.7em;
+            color: #444;
+            _box-shadow: rgba(255, 216, 0, 0.5) 2px 2px, rgba(255, 216, 0, 0.9) 4px 4px, rgba(255, 216, 0, 0.1) 6px 6px;
+            _box-shadow: #eeda6c 5px -5px 0px -1px, #fff 5px -5px, #eeda6c 10px -10px 0px -1px, #fff 10px -10px;
+            box-shadow: #eeda6c 3px -3px 0px -1px, #fff 3px -3px;
+            _filter: drop-shadow(0 0 5px #ccc);
+        }
+

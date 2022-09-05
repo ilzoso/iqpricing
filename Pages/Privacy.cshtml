@@ -1,0 +1,220 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "IQ Pricing";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p class="hidden">Illustration of IQ Pricing Load Screen.</p>
+
+@{
+    var dataRows = new List<object>();
+    for (int x = 0; x < 100; x++)
+    {
+        var dataRow = new { IsExcluded = false, AccountId = $"2000{x}", Name = "James Madison", JiraTaskId = "" };
+        dataRows.Add(dataRow);
+    }
+}
+
+<div style="margin-bottom: 20px;">
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-12">
+            <button class="btn btn-outline-primary btn-sm float-end">Column Settings</button>
+        </div>
+    </div>
+</div>
+
+<div class="iqwrapper">
+    <div class="iqtablewrapper">
+        <table class="iqtable">
+            <thead>
+                <tr>
+                    <th style="min-width: 30px">Excl</th>
+                    <th>Excl Reason</th>
+                    <th class="var">Account</th>
+                    <th>Value Date</th>
+                    <th>Term Date</th>
+                    <th style="min-width: 150px;">Load Type</th>
+                    <th style="min-width: 120px;">BR#</th>
+                    <th>IMVO</th>
+                    <th>TPAO</th>
+                    <th>FBMO</th>
+                    <th>Notes</th>
+                    <th>Data Val</th>
+                    <th>Recon Date</th>
+                    <th># Terms</th>
+                    <th style="min-width: 120px;">BP</th>
+                    <th style="min-width: 120px;">CP</th>
+                    <th>Non Business Term</th>
+                    <th>Multiple Term Dates</th>
+                    <th style="min-width: 80px;">ACAT DLink</th>
+                    <th>ACAT Date</th>
+                    <th class="var">Recon Date Var</th>
+                    <th>Internal MV?</th>
+                    <th>End Date</th>
+                    <th class="var" style="min-width: 180px;">Accrual MV</th>
+                    <th class="var" style="min-width: 180px;">Accrual MV Var</th>
+                    <th class="var">Accrual MV Var %</th>
+                    <th>TRD</th>
+                    <th>LOI To Rebill</th>
+                    <th class="var" style="min-width: 180px;">Cash In Account</th>
+                    <th class="var" style="min-width: 150px;">Payment Method</th>
+                    <th class="var">Paying Account</th>
+                    <th>Pay Account Term/Re-reg</th>
+                    <th>Subm Suppress</th>
+                    <th style="min-width: 250px;">Calc Rec</th>
+                </tr>
+            </thead>
+            @{
+                foreach (var row in dataRows)
+                {
+                    var random = Random.Shared.Next(6);
+                    var random50 = Random.Shared.Next(50);
+                    var random01 = Random.Shared.Next(10);
+                    var random02 = Random.Shared.Next(10);
+                    var random03 = Random.Shared.Next(10);
+                    var random04 = Random.Shared.Next(10);
+                    var random05 = Random.Shared.Next(10);
+                    var random06 = Random.Shared.Next(10);
+                    var random07 = Random.Shared.Next(10);
+                    var cpId = $"{random01}{random02}{random03}{random04}{random05}{random06}{random07}";
+                    string bpId = null;
+
+                    <tbody>
+                        @for (int z = 0; z < random; z++)
+                        {
+                            var random1 = Random.Shared.Next(10);
+                            var random2 = Random.Shared.Next(10);
+                            var random3 = Random.Shared.Next(10);
+                            var random4 = Random.Shared.Next(10);
+                            var random5 = Random.Shared.Next(10);
+                            var random6 = Random.Shared.Next(10);
+                            var accountId = $"{random1}{random2}{random3}{random4}{random5}{random6}";
+                            bpId = bpId ?? accountId;
+                            var brTaskId = $"{random4}{random3}{random2}{random5}{random1}";
+                            <tr>
+                                <td><input type="checkbox" class="exc" /></td>
+                                <td><textarea rows="1" cols="10"></textarea></td>
+                                <td class="var">@(accountId)</td>
+                                <td><input type="date" value="2022-09-06" name="value-date" /></td>
+                                @if (random / 2 >= z)
+                                {
+                                    if (random % 2 == 0)
+                                    {
+                                        <td><input type="date" value="2022-09-06" name="term-date" /></td>
+                                        <td>Termination</td>
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+                                        <td><input type="date" value="2022-09-06" name="rereg-date" /></td>
+                                        <td>Re-registration</td>
+                                        <td><a href="https://csapps-qa.fi.com/browse/BR-@(brTaskId)" target="_blank">BR-@(brTaskId)</a></td>
+                                    }
+                                }
+                                else
+                                {
+                                    <td><input type="date" value="" disabled="disabled" /></td>
+                                    <td>Sibling</td>
+                                    <td></td>
+                                }
+                                <td><input type="checkbox" /></td>
+                                <td><input type="checkbox" checked="checked" /></td>
+                                <td><input type="checkbox" /></td>
+                                <td class="ff-note"><textarea rows="1" cols="10"></textarea></td>
+                                <td><textarea rows="1" cols="10"></textarea></td>
+                                <!--<td><button class="btn btn-secondary btn-sm notes" value="omg!" data-content="dunno what to say">dunno what to say</button></td>-->
+                                <td>09/02/2022</td>
+                                <td>2</td>
+                                @if (z * random % 3 != 0)
+                                {
+                                    <td>BP-@(bpId)</td>
+                                }
+                                else
+                                {
+                                    <td></td>
+                                }
+                                <td>CP-@(cpId)</td>
+                                <td>No</td>
+                                <td>No</td>
+                                @if (z * random % 2 != 0)
+                                {
+                                    <td>De-link</td>
+                                    <td>09/02/2022</td>
+                                }
+                                else
+                                {
+                                    <td></td>
+                                    <td></td>
+                                }
+                                <td class="var">@(random50)</td>
+                                <td>No</td>
+                                <td></td>
+                                <td class="var">USD 20,000.00</td>
+                                <td class="var">USD -4,000.00</td>
+                                <td class="var">15.2%</td>
+                                <td>No</td>
+                                <td>No</td>
+                                <td class="var">USD 3,048.00</td>
+                                <td>Bill Account</td>
+                                <td class="var">@(accountId)</td>
+                                <td>No</td>
+                                <td>No</td>
+                                <td>PCG/FI/USA/USD/USD/T</td>
+                            </tr>
+                        }
+                    </tbody>
+                }
+            }
+        </table>
+    </div>
+</div>
+<div style="margin-top: 20px;">
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-12">
+            <label>Include Processor UDA? </label>&nbsp;
+            <input type="checkbox" />
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-12">
+            <button class="btn btn-secondary">Validate</button>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-12">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("input[type='checkbox']").each(function () {
+                console.log($(this).is(":checked"));
+            });
+            $("input[type='checkbox']").on("change", function () {
+                console.log($(this).is(":checked"));
+                if ($(this).hasClass("exc")) {
+                    if ($(this).is(":checked")) {
+                        $(this).parent().parent().addClass("excluded");
+                    }
+                    else {
+                        $(this).parent().parent().removeClass("excluded");
+                    }
+                }
+            });
+
+            $("textarea").on("focus", function () {
+                console.log($(this).val());
+
+                $(this).popover();
+            });
+
+        });
+
+    </script>
+}
